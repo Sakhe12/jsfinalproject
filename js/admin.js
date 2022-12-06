@@ -39,23 +39,6 @@ JSON.parse(localStorage.getItem('products ')) : [
     }
 ];
 
-
-function showProducts () {
-    products.forEach((sports)=> {
-        let wrapper = document.querySelector(".wrapper")
-        wrapper.innerHTML += `<div class="card" style="width: 18rem;">
-        <img src="${sports.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${sports.product}</h5>
-          <p class="card-text">R${sports.price}</p>
-          <a href="#" class="btn btn-primary">checkout item</a>
-        </div>
-      </div>`
-    });
-}
-
-showProducts();
-
 function displayProducts() {
     let tbody = document.querySelector('tbody');
     Object.keys(products).forEach( (item)=>{
