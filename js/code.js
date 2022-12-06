@@ -1,6 +1,7 @@
 // Sample data: example
-let products = JSON.parse(localStorage.getItem('products ')) ?
-JSON.parse(localStorage.getItem('products ')) : [
+let products = JSON.parse(localStorage.getItem('products '))
+// JSON.parse(localStorage.getItem('products '))
+let shoes = JSON.stringify([
     {
         id: 1,
         product: "Puma Jomo Sono King Senior Soccer Boots",
@@ -37,7 +38,11 @@ JSON.parse(localStorage.getItem('products ')) : [
         price: "1299",
         image: "https://i.postimg.cc/SQ6WrYDS/1162307-METALICCOPPERMETALICCOPPER-1-S8c.jpg"
     }
-];
+])
+
+localStorage.setItem("shoes", shoes)
+
+
 function showProducts () {
     products.forEach((sports)=> {
         document.querySelector(".wrapper").innerHTML += `<div class="card" style="width: 18rem;">
