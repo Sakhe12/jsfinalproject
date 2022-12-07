@@ -41,19 +41,53 @@ JSON.parse(localStorage.getItem('products ')) : [
 
 function displayProducts() {
     let tbody = document.querySelector('tbody');
-    Object.keys(products).forEach( (item)=>{
+    Object.keys(products).forEach( (shoes)=>{
         if(products.length){
-            console.log((`${item}: ${products[item]}`));
+            console.log((`${shoes}: ${products[shoes]}`));
             tbody.innerHTML +=
             `
             <tr>
-            <td>${products[item].id}</td>
-            <td>${products[item].product}</td>
-            <td>${products[item].price}</td>
+            <td>${products[shoes].id}</td>
+            <td>${products[shoes].product}</td>
+            <td>R${products[shoes].price}</td>
+            <td><button id="">edit</button></td>
+            <td><button id="">delete</button></td>
           </tr>
+
             `
-        
         }
     })
 }
 displayProducts()
+//delete
+// function deleteProduct(shoes) {
+//     let index = products.findIndex(a => {
+//         return a.id == item.id 
+//     });
+//     products.splice(index, 1);
+//     localStorage.setItem('products', products);
+//     display()
+// } 
+
+//submit button
+let addItem = document.querySelector('#addItem');
+// let display = document.querySelector('#display');
+
+//add event listener
+addItem.addEventListener('click', (e)=> {
+    e.preventDefault();
+    let id = document.querySelector('#id').value;
+    let product = document.querySelector('#product').value;
+    let price = document.querySelector('#price').value;
+
+    //push an object into an array
+    products.push(
+        {
+            id,
+            product,
+            price
+        }
+    )
+    console.log(products);
+    localStorage.setItem('products', JSON.stringify(product));
+})  

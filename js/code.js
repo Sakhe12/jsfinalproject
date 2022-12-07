@@ -39,7 +39,6 @@ JSON.parse(localStorage.getItem('products ')) : [
     }
 ];
 
-
 function showProducts () {
     products.forEach((sports)=> {
         let wrapper = document.querySelector(".wrapper")
@@ -55,22 +54,23 @@ function showProducts () {
 }
 
 showProducts();
+localStorage.setItem('.wrapper', JSON.stringify(products));
 
-function displayProducts() {
-    let tbody = document.querySelector('tbody');
-    Object.keys(products).forEach( (item)=>{
-        if(products.length){
-            console.log((`${item}: ${products[item]}`));
-            tbody.innerHTML +=
-            `
-            <tr>
-            <td>${products[item].id}</td>
-            <td>${products[item].product}</td>
-            <td>${products[item].price}</td>
-          </tr>
-            `
+// function displayProducts() {
+//     let tbody = document.querySelector('tbody');
+//     Object.keys(products).forEach( (item)=>{
+//         if(products.length){
+//             console.log((`${item}: ${products[item]}`));
+//             tbody.innerHTML +=
+//             `
+//             <tr>
+//             <td>${products[item].id}</td>
+//             <td>${products[item].product}</td>
+//             <td>${products[item].price}</td>
+//           </tr>
+//             `
         
-        }
-    })
-}
-displayProducts()
+//         }
+//     })
+// }
+// displayProducts()
