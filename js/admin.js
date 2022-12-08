@@ -39,55 +39,63 @@ JSON.parse(localStorage.getItem('products ')) : [
     }
 ];
 
-function displayProducts() {
+(function displayProducts() {
     let tbody = document.querySelector('tbody');
-    Object.keys(products).forEach( (shoes)=>{
+    products.forEach( shoes=>{
         if(products.length){
-            console.log((`${shoes}: ${products[shoes]}`));
+            // console.log((`${shoes}: ${shoes}`));
             tbody.innerHTML +=
             `
             <tr>
-            <td>${products[shoes].id}</td>
-            <td>${products[shoes].product}</td>
-            <td>R${products[shoes].price}</td>
-            <td><button id="">edit</button></td>
-            <td><button id="">delete</button></td>
+            <td>${shoes.id}</td>
+            <td>${shoes.product}</td>
+            <td>R${shoes.price}</td>
+            <td><button id="" onclick="">edit</button></td>
+            <td><button onclick="deleteProduct(this.id)" id='${shoes.id}' >delete</button></td>
           </tr>
-
-            `
-        }
+            `}
     })
-}
-displayProducts()
+})()
+// displayProducts()
+// function remove() {
+//     const element = document.querySelector('id');
+//     element.remove();
+// }
 //delete
-// function deleteProduct(shoes) {
-//     let index = products.findIndex(a => {
-//         return a.id == item.id 
-//     });
-//     products.splice(index, 1);
-//     localStorage.setItem('products', products);
-//     display()
-// } 
+function deleteProduct(item) {
+    console.log(item)
+    try {
+        let newProducts = products.filter(product => {
+            return item.id !== product.id 
+        });
+        console.log(newProducts);
+        // localStorage.setItem('products', JSON.stringify(newProducts));
+        // console.log(JSON.parse(localStorage.getItem('products')));
+    }
+    catch(error){
+        console.log(error);
+    } 
+}
 
 //submit button
-let addItem = document.querySelector('#addItem');
-// let display = document.querySelector('#display');
+// let addItem = document.querySelector('#addItem');
+// // let display = document.querySelector('#display');
 
-//add event listener
-addItem.addEventListener('click', (e)=> {
-    e.preventDefault();
-    let id = document.querySelector('#id').value;
-    let product = document.querySelector('#product').value;
-    let price = document.querySelector('#price').value;
+// //add event listener
+// addItem.addEventListener('click', (e)=> {
+//     e.preventDefault();
+//     let id = document.querySelector('#id').value;
+//     let product = document.querySelector('#product').value;
+//     let price = document.querySelector('#price').value;
 
-    //push an object into an array
-    products.push(
-        {
-            id,
-            product,
-            price
-        }
-    )
-    console.log(products);
-    localStorage.setItem('products', JSON.stringify(product));
-})  
+//     //push an object into an array
+//     products.push(
+//         {
+//             id,
+//             product,
+//             price
+//         }
+//     )
+//     console.log(products);
+//     localStorage.setItem('products', JSON.stringify(product));
+// })  

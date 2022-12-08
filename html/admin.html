@@ -47,6 +47,56 @@
       <h2>Admin</h2>
       <table class="table table-hover">
         <thead>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  add
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">id</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+          </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3 align-items-center">
+            <div class="col-auto">
+              <label for="inputPassword6" class="col-form-label">Product</label>
+            </div>
+            <div class="col-auto">
+              <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+            </div>
+            </div>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Price</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+          </div>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
           <tr>
             <th>#</th>
             <th>Product</th>
@@ -59,6 +109,7 @@
             
         </tbody>
       </table>
+      
       
       <script src="../js/admin.js"></script>
           <!-- JavaScript Bundle with Popper -->
