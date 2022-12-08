@@ -39,9 +39,13 @@ JSON.parse(localStorage.getItem('products ')) : [
     }
 ];
 
-(function displayProducts() {
+function displayProducts() {
     let tbody = document.querySelector('tbody');
+    tbody.innerHTML = ''
+    products = JSON.parse(localStorage.getItem('products'))
+
     products.forEach( shoes=>{
+        shoes.id = products.indexOf(shoes) + 1
         if(products.length){
             // console.log((`${shoes}: ${shoes}`));
             tbody.innerHTML +=
@@ -51,32 +55,42 @@ JSON.parse(localStorage.getItem('products ')) : [
             <td>${shoes.product}</td>
             <td>R${shoes.price}</td>
             <td><button id="" onclick="">edit</button></td>
-            <td><button onclick="deleteProduct(this.id)" id='${shoes.id}' >delete</button></td>
+            <td><button onclick="deleteProduct(${shoes.id})" id='${shoes.id}' >delete</button></td>
           </tr>
             `}
     })
-})()
+}
+displayProducts()
 // displayProducts()
 // function remove() {
 //     const element = document.querySelector('id');
 //     element.remove();
 // }
 //delete
-function deleteProduct(item) {
-    console.log(item)
+function deleteProduct(itemId) {
+    console.log(itemId)
     try {
         let newProducts = products.filter(product => {
-            return item.id !== product.id 
+            return itemId !== product.id
         });
         console.log(newProducts);
-        // localStorage.setItem('products', JSON.stringify(newProducts));
-        // console.log(JSON.parse(localStorage.getItem('products')));
+        
+        localStorage.setItem('products', JSON.stringify(newProducts));
+        console.log(JSON.parse(localStorage.getItem('products')));
+        displayProducts()
     }
     catch(error){
         console.log(error);
     } 
 }
 
+// let btnSave = document.querySelector('.btnSave')
+// btnSave.addEventListener('click', (e)=> {
+//     e.preventDefault,
+//     let id =
+//     let product =
+//     let price =
+// })
 //submit button
 // let addItem = document.querySelector('#addItem');
 // // let display = document.querySelector('#display');

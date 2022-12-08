@@ -40,6 +40,7 @@ JSON.parse(localStorage.getItem('products ')) : [
 ];
 
 function showProducts () {
+    products = JSON.parse(localStorage.getItem('products'))
     products.forEach((sports)=> {
         let wrapper = document.querySelector(".wrapper")
         wrapper.innerHTML += `<div class="card" style="width: 18rem;">
@@ -54,7 +55,7 @@ function showProducts () {
 }
 
 showProducts();
-localStorage.setItem('.wrapper', JSON.stringify(products));
+localStorage.setItem('products', JSON.stringify(products));
 
 // function displayProducts() {
 //     let tbody = document.querySelector('tbody');
