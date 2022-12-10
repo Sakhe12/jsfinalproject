@@ -68,6 +68,7 @@ function saveChanges() {
     let id = document.getElementById('id').value;
     let product = document.getElementById('product').value;
     let price = document.getElementById('price').value;
+    let image = document.getElementById('image').value;
 
 
 
@@ -76,7 +77,8 @@ function saveChanges() {
         {
             id,
             product,
-            price
+            price,
+            image
         }
     )
     console.log(products)
@@ -90,3 +92,4 @@ function saveChanges() {
 }
 }
 
+l

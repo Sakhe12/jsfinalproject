@@ -50,7 +50,7 @@ function showProducts () {
         <div class="card-body">
           <h5 class="card-title">${sports.product}</h5>
           <p class="card-text">R${sports.price}</p>
-          <a href="#" class="btn btn-primary">checkout item</a>
+          <a href="#" id="btnCheckout" class="btn  btn-primary" onclick='addToCheckout(${JSON.stringify(sports)})'>checkout item</a>
         </div>
       </div>`
     });
@@ -59,21 +59,25 @@ function showProducts () {
 showProducts();
 localStorage.setItem('products', JSON.stringify(products));
 
-// function displayProducts() {
-//     let tbody = document.querySelector('tbody');
-//     Object.keys(products).forEach( (item)=>{
-//         if(products.length){
-//             console.log((`${item}: ${products[item]}`));
-//             tbody.innerHTML +=
-//             `
-//             <tr>
-//             <td>${products[item].id}</td>
-//             <td>${products[item].product}</td>
-//             <td>${products[item].price}</td>
-//           </tr>
-//             `
-        
-//         }
-//     })
-// }
-// displayProducts()
+let checkout = [];
+// localStorage.setItem('addCheckout', JSON.stringify(checkout));
+// let checkBtn = [...document.querySelectorAll("#btnCheckout")];
+// console.log(checkBtn);
+
+// Object.keys(checkBtn).forEach((boots) => {
+//     checkBtn[boots].addEventListener("click", (e) => {
+//         e.preventDefault();
+//         console.log(checkBtn[boots]);
+//         console.log(products[boots]);
+//         checkout.push(products[boots]);
+//         console.log(checkout);
+//         localStorage.setItem('addCheckout', JSON.stringify(checkout));
+//     });
+// });
+
+function addToCheckout(item) {
+    console.log(item);
+    checkout.push(item);
+    localStorage.setItem('addCheckout', JSON.stringify(checkout));
+
+}
