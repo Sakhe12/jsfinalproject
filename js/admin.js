@@ -92,4 +92,10 @@ function saveChanges() {
 }
 }
 
-l
+function sorts () {
+    document.querySelector('tbody').innerHTML = ``
+    let sorter = products.sort((a, b) => (a.product > b.product) ? 1 : -1);
+    localStorage.setItem('products',JSON.stringify(products))
+    console.log(sorter);
+    displayProducts();
+}
