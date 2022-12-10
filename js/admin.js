@@ -3,8 +3,19 @@ let products = JSON.parse(localStorage.getItem('products'));
 
 function displayProducts() {
     let tbody = document.querySelector('tbody');
+    // for(let i = 0; i < products; i++) {
+    //     tbody.innerHTML = `
+    //     <tr>
+    // //         <td>${products[i].id}</td>
+    // //         <td>${products[i].product}</td>
+    // //         <td>R${products[i].price}</td>
+    // //         <td><button id="" onclick="">edit</button></td>
+    // //         <td><button onclick="deleteProduct(${products[i].id})" id='${shoes.id}' >delete</button></td>
+    // //       </tr>
+    //     `
+    // }
     tbody.innerHTML = ''
-    products.forEach( shoes=>{
+    products.forEach( (shoes)=>{
         shoes.id = products.indexOf(shoes) + 1
         if(products.length){
             // console.log((`${shoes}: ${shoes}`));
@@ -53,11 +64,10 @@ function deleteProduct(itemId) {
 
 function saveChanges() {
     document.querySelector('#saveChanges')
-saveChanges.addEventListener('click', (e)=> {
-    e.preventDefault();
-    let id = document.getElementById('#id').value;
-    let product = document.getElementById('#product').value;
-    let price = document.getElementById('#price').value;
+ {
+    let id = document.getElementById('id').value;
+    let product = document.getElementById('product').value;
+    let price = document.getElementById('price').value;
 
 
 
@@ -69,13 +79,14 @@ saveChanges.addEventListener('click', (e)=> {
             price
         }
     )
-    alert('Data Saved')
+    console.log(products)
+    // alert('Data Saved')
     localStorage.setItem('products', JSON.stringify(products));
     displayProducts();
 
-    // console.log(products);
-    localStorage.setItem('products', JSON.stringify(product));
-    displayProducts()
-})  
+    // // console.log(products);
+    // localStorage.setItem('products', JSON.stringify(product));
+    // displayProducts()
+}
 }
 
