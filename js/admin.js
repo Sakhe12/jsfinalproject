@@ -49,6 +49,7 @@ function deleteProduct(itemId) {
         localStorage.setItem('products', JSON.stringify(newProducts));
         console.log(JSON.parse(localStorage.getItem('products')));
         displayProducts()
+        location.reload()
     }
     catch(error){
         console.log(error);
